@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-const API_URL = "http://localhost:5000/api/cart";
+const API_URL = "https://ecomm-o9t0.onrender.com/api/cart";
 
 const useCartStore = create((set) => ({
   cart: null, 
@@ -22,7 +22,7 @@ const useCartStore = create((set) => ({
     }
   },
 
-  // 🔹 Ajouter un produit au panier
+  //  Ajouter un produit au panier
   addToCart: async (product, quantity = 1) => {
     try {
       const res = await fetch(`${API_URL}/add`, {

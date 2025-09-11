@@ -4,7 +4,7 @@ export default function MyOrders() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/orders", {
+    fetch("https://ecomm-o9t0.onrender.com/api/orders", {
       method: "GET",
       credentials: "include",
     })

@@ -6,7 +6,7 @@ export default function AdminUsers() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api", {
+    fetch("https://ecomm-o9t0.onrender.com/api", {
       method: "GET",
       credentials: "include", // envoie les cookies pour JWT
     })

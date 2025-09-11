@@ -10,7 +10,7 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true);
  const navigate=useNavigate();
   useEffect(() => {
-    fetch("http://localhost:5000/api/dashboard", {
+    fetch("https://ecomm-o9t0.onrender.com/api/dashboard", {
       method: "GET",
       credentials: "include", 
     })

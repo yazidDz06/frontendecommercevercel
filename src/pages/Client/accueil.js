@@ -17,7 +17,7 @@ export default function Accueil() {
 
   // Fetch produits
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch("https://ecomm-o9t0.onrender.com/api/products")
       .then((res) => res.json())
       .then((data) => setListeProd(data))
       .catch((err) => console.error("Erreur fetch produits:", err));

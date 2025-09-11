@@ -16,7 +16,7 @@ const [results, setResults] = useState([]);
 
   // Fetch produits
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch("https://ecomm-o9t0.onrender.com/api/products")
       .then((res) => res.json())
       .then((data) => setListeProd(data))
       .catch((err) => console.error("Erreur fetch produits:", err));
@@ -24,7 +24,7 @@ const [results, setResults] = useState([]);
 
   // Fetch catégories
   useEffect(() => {
-    fetch("http://localhost:5000/api/categories")
+    fetch("https://ecomm-o9t0.onrender.com/api/categories")
       .then((res) => res.json())
       .then((data) => setListeCat(data))
       .catch((err) => console.error("Erreur fetch catégories:", err));

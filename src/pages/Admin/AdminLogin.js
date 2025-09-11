@@ -13,7 +13,7 @@ export default function AdminLogin() {
 
     try {
       // 1️⃣ Login admin
-      const res = await fetch("http://localhost:5000/api/login", {
+      const res = await fetch("https://ecomm-o9t0.onrender.com/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include", // important pour cookie JWT
@@ -23,7 +23,7 @@ export default function AdminLogin() {
       if (!res.ok) throw new Error("Échec de connexion");
 
       // 2️⃣ Vérification rôle via /me
-      const meRes = await fetch("http://localhost:5000/api/me", {
+      const meRes = await fetch("https://ecomm-o9t0.onrender.com/api/me", {
         method: "GET",
         credentials: "include",
       });

@@ -16,7 +16,7 @@ export default function ProductAdmin() {
   
   const fetchProducts = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/products");
+      const res = await fetch("https://ecomm-o9t0.onrender.com/api/products");
       const data = await res.json();
       setProducts(data);
     } catch (error) {
@@ -27,7 +27,7 @@ export default function ProductAdmin() {
   
   const fetchCategories = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/categories");
+      const res = await fetch("https://ecomm-o9t0.onrender.com/api/categories");
       const data = await res.json();
       setCategories(data);
     } catch (error) {
@@ -50,7 +50,7 @@ export default function ProductAdmin() {
     e.preventDefault();
 
     try {
-      const baseUrl = "http://localhost:5000/api/products";
+      const baseUrl = "https://ecomm-o9t0.onrender.com/api/products";
       const url = editingId ? `${baseUrl}/${editingId}` : baseUrl;
       const method = editingId ? "PUT" : "POST";
 
@@ -91,7 +91,7 @@ export default function ProductAdmin() {
   const handleDelete = async (id) => {
     if (!window.confirm("Voulez-vous vraiment supprimer ce produit ?")) return;
     try {
-      await fetch(`http://localhost:5000/api/products/${id}`, { method: "DELETE" ,  credentials: "include"});
+      await fetch(`https://ecomm-o9t0.onrender.com/api/products/${id}`, { method: "DELETE" ,  credentials: "include"});
       fetchProducts();
     } catch (error) {
       console.error("Erreur delete produit :", error);

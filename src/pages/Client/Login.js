@@ -22,7 +22,7 @@ export default function AuthPage() {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = isSignUp ? "http://localhost:5000/api/register" : "http://localhost:5000/api/login";
+    const url = isSignUp ? "https://ecomm-o9t0.onrender.com/api/register" : "https://ecomm-o9t0.onrender.com/api/login";
     const dataToSend = isSignUp ? signUpData : loginData;
 
     try {

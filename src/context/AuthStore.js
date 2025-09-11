@@ -5,7 +5,7 @@ export const useAuthStore = create((set) => ({
 
 fetchUser: async () => {
   try {
-    const res = await fetch("http://localhost:5000/api/me", {
+    const res = await fetch("https://ecomm-o9t0.onrender.com/api/me", {
       credentials: "include",
     });
 
@@ -24,7 +24,7 @@ fetchUser: async () => {
 },
 
   logout: async () => {
-    await fetch("http://localhost:5000/api/logout", {
+    await fetch("https://ecomm-o9t0.onrender.com/api/logout", {
       method: "POST",
       credentials: "include",
     });

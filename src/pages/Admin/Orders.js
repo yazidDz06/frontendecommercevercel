@@ -4,7 +4,7 @@ export default function AdminOrders() {
   const [commandes, setCommandes] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/orders/allorders", {
+    fetch("https://ecomm-o9t0.onrender.com/api/orders/allorders", {
       method: "GET",
       credentials: "include",
     })
