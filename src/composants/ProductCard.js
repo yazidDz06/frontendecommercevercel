@@ -13,7 +13,7 @@ export default function ProductDetail() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://ecomm-o9t0.onrender.com//api/products/${id}`)
+    fetch(`https://ecomm-o9t0.onrender.com/api/products/${id}`)
       .then(res => res.json())
       .then(data => setProduct(data))
       .catch(err => console.log("Erreur récupération produit", err));
