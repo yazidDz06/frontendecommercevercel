@@ -20,38 +20,52 @@ export default function AuthPage() {
   };
 
   // Handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const url = isSignUp ? "https://ecomm-o9t0.onrender.com/api/register" : "https://ecomm-o9t0.onrender.com/api/login";
-    const dataToSend = isSignUp ? signUpData : loginData;
+// Handle form submission
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(dataToSend),
-        credentials: "include",
-      });
-      const data = await response.json();
-      console.log(data);
-       if (response.ok) {
-         await fetchUser();
-        setMessage(isSignUp ? "Inscription réussie 🎉" : "Connexion réussie ✅");
-       
-       navigate("/products");
-        setTimeout(() => {
-    setMessage("");
-  }, 2000);
-      } else {
-        setMessage(data.error || "Une erreur est survenue ❌");
-        setTimeout(() => {
-    setMessage("");
-  }, 2000);
-      }
-    } catch (err) {
-      console.error("Erreur:", err);
+  const url = isSignUp 
+    ? "https://ecomm-o9t0.onrender.com/api/register" 
+    : "https://ecomm-o9t0.onrender.com/api/login";
+  
+  const dataToSend = isSignUp ? signUpData : loginData;
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(dataToSend),
+      credentials: "include", 
+    });
+
+    const data = await response.json();
+    console.log("Auth response:", data);
+
+    if (response.ok) {
+      //  après login/signup, appeler /me pour récupérer l'utilisateur
+      await fetchUser();
+
+      setMessage(isSignUp ? "Inscription réussie 🎉" : "Connexion réussie ✅");
+
+      // Rediriger
+      navigate("/products");
+
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
+
+    } else {
+      setMessage(data.error || "Une erreur est survenue ❌");
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
     }
-  };
+  } catch (err) {
+    console.error("Erreur:", err);
+    setMessage("Erreur réseau ❌");
+  }
+};
+
 
   return (
     

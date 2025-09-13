@@ -6,6 +6,7 @@ export const useAuthStore = create((set) => ({
 fetchUser: async () => {
   try {
     const res = await fetch("https://ecomm-o9t0.onrender.com/api/me", {
+        method: "GET",
       credentials: "include",
     });
 
